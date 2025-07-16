@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Commercial Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0D1117; /* A slightly darker bg for contrast */
+        }
+        #notification {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        /* Styles for scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Styles for FAQ accordion */
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.is-open .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" id="home-link" class="text-2xl font-bold text-cyan-400">Quantum<span class="text-white">Leap</span></a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#products" id="nav-products-link" class="hover:text-cyan-400 transition-colors cursor-pointer">Products</a>
+                <a href="#contact" id="nav-contact-link" class="hover:text-cyan-400 transition-colors cursor-pointer">Contact</a>
+            </div>
+             <button id="mobile-menu-button" class="md:hidden text-2xl"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+        <main class="container mx-auto px-6 py-16">
+            <div class="text-center mb-24">
+                <h1 class="animate-on-scroll text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Revolutionize Your Workflow</h1>
+                <p class="animate-on-scroll text-lg text-gray-300 max-w-2xl mx-auto" style="transition-delay: 100ms;">Discover our suite of next-generation tools designed for performance, collaboration, and unparalleled results.</p>
+            </div>
+
+            <section id="products" class="mb-24">
+                <h2 class="animate-on-scroll text-4xl font-bold text-center mb-12">Featured Products</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Cards -->
+                    <div class="animate-on-scroll product-card cursor-pointer" data-product="synergy-hub">
+                        <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col group">
+                            <img src="https://placehold.co/600x400/0D1117/38BDF8?text=Synergy+Hub" alt="Product 1" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold mb-2">Synergy Hub</h3>
+                                <p class="text-gray-400 mb-4 flex-grow">The ultimate collaboration platform.</p>
+                                <div class="flex justify-between items-center mt-auto">
+                                    <span class="text-3xl font-bold text-cyan-400">₹4,210</span>
+                                    <div class="bg-gray-700 group-hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-lg transition-colors">View Details</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll product-card cursor-pointer" data-product="dataweave" style="transition-delay: 150ms;">
+                        <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col group">
+                            <img src="https://placehold.co/600x400/0D1117/A78BFA?text=DataWeave" alt="Product 2" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold mb-2">DataWeave</h3>
+                                <p class="text-gray-400 mb-4 flex-grow">AI-powered data analytics.</p>
+                                <div class="flex justify-between items-center mt-auto">
+                                    <span class="text-3xl font-bold text-cyan-400">₹8,500</span>
+                                    <div class="bg-gray-700 group-hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-lg transition-colors">View Details</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll product-card cursor-pointer" data-product="flowstate" style="transition-delay: 300ms;">
+                         <div class="bg-gray-800 rounded-xl shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col group">
+                            <img src="https://placehold.co/600x400/0D1117/F472B6?text=FlowState" alt="Product 3" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold mb-2">FlowState</h3>
+                                <p class="text-gray-400 mb-4 flex-grow">Automate your entire workflow.</p>
+                                <div class="flex justify-between items-center mt-auto">
+                                    <span class="text-3xl font-bold text-cyan-400">₹6,790</span>
+                                    <div class="bg-gray-700 group-hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-lg transition-colors">View Details</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="mb-24">
+                <h2 class="animate-on-scroll text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="animate-on-scroll faq-item bg-gray-800 rounded-xl overflow-hidden">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6 cursor-pointer">
+                            <span class="text-xl font-semibold">What payment methods do you accept?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-400">We accept all major credit cards (Visa, Mastercard, American Express), as well as UPI, Net Banking, and other popular payment wallets.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="animate-on-scroll faq-item bg-gray-800 rounded-xl overflow-hidden" style="transition-delay: 150ms;">
+                         <button class="faq-question w-full flex justify-between items-center text-left p-6 cursor-pointer">
+                            <span class="text-xl font-semibold">Can I get a refund?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-400">Yes, we offer a 14-day money-back guarantee. If you are not satisfied with our product, you can request a full refund within 14 days of your purchase.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ Item 3 -->
+                    <div class="animate-on-scroll faq-item bg-gray-800 rounded-xl overflow-hidden" style="transition-delay: 300ms;">
+                         <button class="faq-question w-full flex justify-between items-center text-left p-6 cursor-pointer">
+                            <span class="text-xl font-semibold">Do you offer support?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-6 pt-0 text-gray-400">Absolutely! All our plans come with 24/7 email support. Our enterprise plan includes a dedicated account manager and phone support.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Product Detail Page (Hidden by default) -->
+    <div id="product-detail-page" class="hidden">
+        <div class="container mx-auto px-6 py-16">
+            <button class="back-button mb-8 text-cyan-400 hover:text-cyan-300 transition-colors"><i class="fas fa-arrow-left mr-2"></i>Back to Products</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img id="detail-img" src="" alt="Product Image" class="w-full rounded-xl shadow-2xl">
+                </div>
+                <div>
+                    <h1 id="detail-title" class="text-5xl font-extrabold mb-4"></h1>
+                    <p id="detail-long-desc" class="text-lg text-gray-300 mb-6"></p>
+                    <div class="bg-gray-800 rounded-lg p-6 flex justify-between items-center">
+                        <div>
+                            <p class="text-gray-400 text-sm">Price</p>
+                            <span id="detail-price" class="text-4xl font-bold text-cyan-400"></span>
+                        </div>
+                        <button class="buy-now-btn bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg transition-transform transform hover:scale-105">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page (Hidden by default) -->
+    <div id="contact-page" class="hidden">
+        <div class="container mx-auto px-6 py-16">
+             <button class="back-button mb-8 text-cyan-400 hover:text-cyan-300 transition-colors"><i class="fas fa-arrow-left mr-2"></i>Back</button>
+            <div class="text-center">
+                <h1 class="text-5xl font-extrabold mb-4">Get In Touch</h1>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-12">We'd love to hear from you. Please fill out the form below or reach out to us directly.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Form -->
+                <form id="contact-form" class="bg-gray-800 rounded-xl shadow-2xl p-8">
+                    <div class="mb-6">
+                        <label for="name" class="block text-gray-300 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block text-gray-300 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full bg-gray-700 text-white px-4 py-3 rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105">Send Message</button>
+                </form>
+                <!-- Contact Details -->
+                <div class="space-y-8">
+                    <div class="bg-gray-800 rounded-xl p-6 flex items-center">
+                        <i class="fas fa-map-marker-alt text-3xl text-cyan-400 mr-6"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Address</h3>
+                            <p class="text-gray-400">123 Quantum Plaza, New Delhi, 110001, India</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-6 flex items-center">
+                        <i class="fas fa-phone-alt text-3xl text-cyan-400 mr-6"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Phone</h3>
+                            <p class="text-gray-400">+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 rounded-xl p-6 flex items-center">
+                        <i class="fas fa-envelope text-3xl text-cyan-400 mr-6"></i>
+                        <div>
+                            <h3 class="text-xl font-bold">Email</h3>
+                            <p class="text-gray-400">support@quantumleap.inc</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-gray-900 mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-2xl hover:text-cyan-400 transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-2xl hover:text-cyan-400 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-2xl hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 QuantumLeap Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notification Pop-up -->
+    <div id="notification" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg transform translate-y-20 opacity-0">
+        <p>Notification Text</p>
+    </div>
+    
+    <script>
+        // --- DATA ---
+        const productsData = {
+            'synergy-hub': { title: 'Synergy Hub', longDesc: 'Synergy Hub is the ultimate collaboration platform that brings your teams, tools, and conversations together in one place. Streamline communication with real-time messaging, video conferencing, and file sharing, all integrated seamlessly to boost productivity.', price: '₹4,210', img: 'https://placehold.co/600x400/0D1117/38BDF8?text=Synergy+Hub' },
+            'dataweave': { title: 'DataWeave', longDesc: 'Unlock the power of your data with DataWeave, our AI-powered analytics tool. Connect to any data source, visualize complex datasets with intuitive dashboards, and gain actionable insights in minutes. Make smarter, data-driven decisions.', price: '₹8,500', img: 'https://placehold.co/600x400/0D1117/A78BFA?text=DataWeave' },
+            'flowstate': { title: 'FlowState', longDesc: 'Automate repetitive tasks and orchestrate complex workflows with FlowState. Our no-code visual builder allows you to design, test, and deploy automation across your favorite apps and services, freeing up your team to focus on what matters most.', price: '₹6,790', img: 'https://placehold.co/600x400/0D1117/F472B6?text=FlowState' }
+        };
+
+        // --- ELEMENTS ---
+        const mainContent = document.getElementById('main-content');
+        const detailPage = document.getElementById('product-detail-page');
+        const contactPage = document.getElementById('contact-page');
+        const productCards = document.querySelectorAll('.product-card');
+        const backButtons = document.querySelectorAll('.back-button');
+        const navContactLink = document.getElementById('nav-contact-link');
+        const navProductsLink = document.getElementById('nav-products-link');
+        const homeLink = document.getElementById('home-link');
+        const contactForm = document.getElementById('contact-form');
+        const notification = document.getElementById('notification');
+        let notificationTimeout;
+
+        // --- FUNCTIONS for Page Navigation ---
+        function showDetailPage(productKey) {
+            const product = productsData[productKey];
+            if (!product) return;
+
+            detailPage.querySelector('#detail-title').textContent = product.title;
+            detailPage.querySelector('#detail-long-desc').textContent = product.longDesc;
+            detailPage.querySelector('#detail-price').textContent = product.price;
+            detailPage.querySelector('#detail-img').src = product.img;
+            
+            mainContent.classList.add('hidden');
+            contactPage.classList.add('hidden');
+            detailPage.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showContactPage() {
+            mainContent.classList.add('hidden');
+            detailPage.classList.add('hidden');
+            contactPage.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showMainPage() {
+            detailPage.classList.add('hidden');
+            contactPage.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        function showNotification(message, isSuccess = true) {
+            notification.textContent = message;
+            notification.classList.toggle('bg-green-500', isSuccess);
+            notification.classList.toggle('bg-cyan-500', !isSuccess);
+            notification.classList.remove('translate-y-20', 'opacity-0');
+
+            clearTimeout(notificationTimeout);
+            notificationTimeout = setTimeout(() => {
+                notification.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // --- EVENT LISTENERS ---
+        productCards.forEach(card => {
+            card.addEventListener('click', () => showDetailPage(card.dataset.product));
+        });
+
+        backButtons.forEach(button => button.addEventListener('click', showMainPage));
+        
+        navContactLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showContactPage();
+        });
+
+        navProductsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showMainPage();
+            document.getElementById('products').scrollIntoView();
+        });
+
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showMainPage();
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showNotification("Message sent successfully!", true);
+            contactForm.reset();
+        });
+
+        detailPage.querySelector('.buy-now-btn').addEventListener('click', () => {
+             const productName = detailPage.querySelector('#detail-title').textContent;
+             showNotification(`"${productName}" added to cart!`, false);
+        });
+
+        // --- FAQ Accordion ---
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                const wasOpen = item.classList.contains('is-open');
+
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('is-open');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // If it wasn't already open, open it. Otherwise, it will close because all items were closed above.
+                if (!wasOpen) {
+                    item.classList.add('is-open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // --- SCROLL ANIMATION LOGIC ---
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+
+    </script>
+</body>
+</html>
