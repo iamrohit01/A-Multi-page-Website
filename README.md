@@ -20,8 +20,7 @@ Clean, Modern Stack: Built with just HTML, Tailwind CSS, and vanilla JavaScriptâ
 
 How to Use
 
-Download the Files: Save the index.html file (the main website code), this README.md, and the LICENSE file.
-
+Download the Files: Save the index.html file (the main website code), 
 Open in a Browser: Simply open the index.html file in any modern web browser to view and interact with the website.
 
 Customization:
